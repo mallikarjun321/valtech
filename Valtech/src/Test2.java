@@ -21,7 +21,9 @@ public class Test2 {
 		String a[] = { "ABOUT", "WORK", "SERVICES" };
 		for (int i = 1; i < 4; i++) {
 			driver.findElement(By.xpath(".//*[@id='navigationMenuWrapper']/div/ul/li[" + i + "]/a/span")).click();
-			Assert.assertTrue(driver.findElement(By.tagName("h1")).getText().equalsIgnoreCase(a[i - 1]));
+			System.out.println(driver.findElement(By.xpath(".//*[@id='container']//following::h1")).getText());
+			
+			Assert.assertTrue(driver.findElement(By.xpath(".//*[@id='container']//following::h1")).getText().equalsIgnoreCase(a[i - 1]));
 
 		}
 		driver.close();
